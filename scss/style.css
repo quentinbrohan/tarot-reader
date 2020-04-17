@@ -1,0 +1,283 @@
+body {
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  background: #1a1a1a;
+  color: #f3f5f9;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+*,
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+img.tarot__logo {
+  margin: 0 auto;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 512px;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:visited {
+  color: #f3f5f9;
+}
+
+a:visited:hover {
+  color: #c2191b;
+  -webkit-transition: color ease-in-out .15s;
+  transition: color ease-in-out .15s;
+}
+
+.wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.card-wrapper {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 10vh;
+  width: 100%;
+  min-height: 560px;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  text-align: center;
+}
+
+.card {
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  height: 528px;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.card figure {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+figure {
+  margin: 0;
+}
+
+.back {
+  position: relative;
+}
+
+.card .front {
+  position: relative;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.card .flipped {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.front img,
+.back img {
+  margin: 0 auto;
+  width: 320px;
+  height: 528px;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
+          box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
+}
+
+.hailing {
+  font-size: 1.5rem;
+  height: 100%;
+  padding: 0;
+}
+
+.hailing h1 {
+  color: #e42a2d;
+}
+
+.hailing img {
+  margin-top: 0.2rem;
+  height: 4rem;
+}
+
+.description-wrapper {
+  padding: 0 0 4rem 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.description p {
+  display: inline-block;
+  padding: 1rem 0;
+  width: 75%;
+  line-height: 150%;
+}
+
+.name h2 {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: #e42a2d;
+}
+
+.arcana-icon img {
+  margin-top: 1rem;
+  height: 4rem;
+}
+
+.name,
+.description {
+  width: 100%;
+  height: 100%;
+}
+
+.fateButton:focus {
+  outline: none;
+}
+
+.reversed img {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.reversed__text {
+  font-weight: bold;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  padding: 0.5rem;
+  width: 100%;
+  border-top: #e5e5e5 solid 1px;
+  text-align: center;
+}
+
+footer p {
+  display: inline-block;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.logoicon {
+  margin: 1.5rem;
+  width: 2rem;
+  vertical-align: top;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+}
+
+.aligner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 525px) {
+  .wrapper {
+    margin-bottom: 10vh;
+    margin: 0 auto;
+    width: 80%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    margin-bottom: 10vh;
+    margin: 0 auto;
+    width: 80%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: left;
+  }
+  .card-wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 50%;
+    min-height: 560px;
+    text-align: center;
+  }
+  .description-wrapper {
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    width: 50%;
+    text-align: center;
+  }
+  footer {
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+@media (min-width: 1180px) {
+  .wrapper {
+    width: 65%;
+  }
+}
+/*# sourceMappingURL=style.css.map */

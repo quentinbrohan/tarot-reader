@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="scss/normalize.css">
+  <link rel="stylesheet" href="scss/style.css">
+  <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
+  <title>Tarot Reader</title>
+</head>
+
+<body>
+
+  <header>
+    <h1 style="display: none">Tarot Reader</h1>
+    <img src="images/tarotheader.svg" class="tarot__logo" alt="Tarot Reader">
+  </header>
+
+  <main class="wrapper">
+
+    <div class="description-wrapper">
+      <section class="hailing">
+        <h1>Your fate awaits !</h1>
+        <p>Click on the card to reveal the truth.</p>
+        <img src="images/hand.svg" alt="Icône main">
+      </section>
+
+      <div class="card-details aligner">
+        <section class="arcana-icon"></section>
+
+        <section class="name"></section>
+
+        <section class="description"></section>
+      </div>
+    </div>
+
+    <div class="card-wrapper">
+      <section class="card" id="card">
+
+        <figure class="back">
+           <!--card Back -->
+          <img src="images/card-back--black.svg" alt="Bouton du destin" class="fateButton">
+        </figure>
+
+        <figure class="front fateButton">
+           <!--card Front -->
+        </figure>
+
+      </section>
+    </div>
+
+
+
+  </main>
+
+  <footer>
+    <p>Coded by:
+       <a href="https://quentinbrohan.github.io/" target="_blank" rel="noopener noreferrer">Quentin Brohan</a>.
+      Illustrations:
+      <a href="http://www.winslowdumaine.com/tarot" target="_blank" rel="noopener noreferrer">Winslow Dumaine</a>.
+      Cards meaning:
+      <a href="https://www.barnesandnoble.com/w/an-occult-guide-to-the-tarot-travis-mchenry/1123404538" target="_blank" rel="noopener noreferrer">Travis McHenry</a>.
+    </p>
+  </footer>
+
+  <script src="js/tarot-cards.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>

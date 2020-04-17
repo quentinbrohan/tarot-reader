@@ -1,0 +1,238 @@
+$border-color: #e5e5e5;
+$colorblood: #e42a2d;
+$colorbloodDarker : #c2191b;
+$color: #f3f5f9;
+$bg: #1a1a1a;
+
+body {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    background: $bg;
+    color: #f3f5f9;
+    justify-content: space-between;
+}
+
+*,
+:after,
+:before {
+    box-sizing: border-box;
+}
+
+img.tarot__logo {
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 512px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    &:visited {
+        color: $color;
+    &:hover {
+        color: $colorbloodDarker;
+        transition: color ease-in-out .15s;
+    }
+}
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card-wrapper {
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 10vh;
+    width: 100%;
+    min-height: 560px;
+    perspective: 800px;
+    text-align: center;
+}
+
+.card {
+    // padding: 0;
+    position: absolute;
+    margin: 0 auto;
+    width: 100%;
+    height: 528px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.card figure {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+figure {
+    margin: 0;
+}
+
+.back {
+    position: relative;
+}
+
+.card .front {
+    position: relative;
+    transform: rotateY(180deg);
+}
+  
+.card .flipped {
+    transform: rotateY(180deg);
+}
+  
+.front img ,
+.back img {
+    margin: 0 auto;
+    width: 320px;
+    height: 528px;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.35);
+}
+
+.hailing {
+    font-size: 1.5rem;
+    height: 100%;
+    padding: 0;
+    & h1 {
+        color: $colorblood;
+    }
+}
+
+.hailing img {
+    margin-top: 0.2rem;
+    height: 4rem;
+}
+
+.description-wrapper {
+    padding: 0 0 4rem 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.description p {
+    display: inline-block;
+    padding: 1rem 0;
+    width: 75%;
+    line-height: 150%;
+}
+
+.name h2 {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color:$colorblood;
+}
+
+.arcana-icon img {
+    margin-top: 1rem;
+    height: 4rem;
+}
+
+.name,
+.description {
+    width: 100%;
+    height: 100%;
+}
+
+.fateButton:focus {
+    outline: none;
+}
+
+.reversed img {
+    transform: rotate(180deg);
+}
+
+.reversed__text {
+    font-weight: bold;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    padding: 0.5rem;
+    width: 100%;
+    border-top: $border-color solid 1px;
+    text-align: center;
+    & p {
+        // padding: 2rem 1.5rem 1.5rem 1.5rem;
+        display: inline-block;
+        font-size: 1rem;
+        text-align: center;
+        // text-transform: uppercase;
+    }
+}
+
+.logoicon {
+    margin: 1.5rem;
+    width: 2rem;
+    vertical-align: top;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+        min-height: 100vh;
+}
+
+.aligner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 525px) {
+    .wrapper {
+        margin-bottom: 10vh;
+        margin: 0 auto;
+        width: 80%;
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+    }
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        margin-bottom: 10vh;
+        margin: 0 auto;
+        width: 80%;
+        align-items: center;
+        text-align: left;
+    }
+    .card-wrapper {
+        position: relative;
+        margin: 0 auto;
+        width: 50%;
+        min-height: 560px;
+        text-align: center;
+    }
+    .description-wrapper {
+        margin: 0 auto;
+        padding-bottom: 2rem;
+        width: 50%;
+        text-align: center;
+    }
+    footer {
+        align-content: center;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+
+@media (min-width: 1180px) {
+    .wrapper {
+        width: 65%;
+    }
+}

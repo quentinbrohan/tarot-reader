@@ -91,7 +91,7 @@ let app = {
   }
 
     // Injection de la carte dans le DOM
-    app.elements.cardFront.append(image).style.display = "none";
+    app.elements.cardFront.append(img).style.display = "none";
     app.elements.cardArcanaIcon.append(category).style.display = "none";
     app.elements.cardName.append(name).style.display = "none";
     app.elements.cardDescription.append(description).style.display = "none";
@@ -110,23 +110,34 @@ let app = {
     // var cardReversed = 'reversed';
     // var cardCategory = 'category';
 
-    name = pickedCard[0];
-    image = pickedCard[1];
-    description = pickedCard[2];
-    reversed = pickedCard[3]
-    category = pickedCard[4];
+    var assetsCards = "../images/tarot-cards/";
+    var assetsCategories = "../images/";
 
-    console.log('Affiche la carte dans la page');
+    let name = pickedCard[0] = document.createElement('h2');
+    name.innerHTML = name;
+    let image = pickedCard[1];
+    let img = document.createElement('img');
+    img.src = assetsCards+image;
+    let description = pickedCard[2] = document.createElement('p');
+    description.innerHTML = description;
+    let reversed = pickedCard[3] = document.createElement('p');
+    // TODO: Affichage à coder ici ou dans fonction reversed ?
+    // TODO OU coder ici et affiché dans fonction reversed.
+    let category = pickedCard[4]
+    let cat = document.createElement('img');
+    cat.src = assetsCategories+category+'.svg';
+
+    console.log('Place la carte dans l\'HTML');
     // Affiche la carte dans la page web
 
     // Retourne un array n'exécute pas le code
-    return [
+  //   return crochet ouvrant
     
-    image.innerHTML = '<img src="images/tarot-cards/'+ name + '" alt="Carte ' + name +'" />',
-    category.innerHtml = '<img src="images/' + category + '.svg" alt="Icône ' + category +'" />',
-    name.innerHtml = '<h2>' + name + '</h2>',
-    description.innerHtml = '<p>' + description + '</p>',
-  ]
+  //   image.innerHTML = '<img src="images/tarot-cards/'+ image + '" alt="Carte ' + name +'" />',
+  //   category.innerHtml = '<img src="images/' + category + '.svg" alt="Icône ' + category +'" />',
+  //   name.innerHtml = '<h2>' + name + '</h2>',
+  //   description.innerHtml = '<p>' + description + '</p>',
+  // crochet fermant
   },
 
     // Affiche la carte et la cache tous les autres clics selon si pair ou impair
@@ -140,7 +151,7 @@ let app = {
     } else {
       app.elements.cardBack = document.querySelector('.back');
       app.elements.cardBack.style.display = "none";
-      app.flipCard();
+      // app.flipCard();
       
       // Valide uniquement dès 1er affichage d'une carte
       // app.elements.nameh2 = document.querySelector('.name h2');

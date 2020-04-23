@@ -321,7 +321,7 @@ var dataTarotCardsList = [
   // PENTACLES
   [
     name = "Ace of Pentacles",
-    image = "star-ace.jpg",
+    image = "stars-ace.jpg",
     description = "A hand - issuing, as usual, from a cloud - holds up a pentacle. Divinatory Meanings= Perfect contentment, felicity, ecstasy; also speedy intelligence; gold.",
     reversed = "The evil side of wealth, bad intelligence; also great riches. In any case it shews prosperity, comfortable material conditions, but whether these are of advantage to the possessor will depend on whether the card is r not.",
     category = "pentacles"
@@ -329,7 +329,7 @@ var dataTarotCardsList = [
 
   [
     name = "Two of Pentacles",
-    image = "star-2.jpg",
+    image = "stars-2.jpg",
     description = "A young man, in the act of dancing, has a pentacle in either hand, and they are joined by that endless cord which is like the number 8 Divinatory Meanings= On the one hand it is represented as a card of gaiety, recreation and its connexions, which is the subject of the design; but it is read also as news and messages in writing, as obstacles, agitation, trouble, embroilment.",
     reversed = "Enforced gaiety, simulated enjoyment, literal sense, handwriting, composition, letters of exchange.",
     category = "pentacles"
@@ -337,7 +337,7 @@ var dataTarotCardsList = [
 
   [
     name = "Three of Pentacles",
-    image = "star-3.jpg",
+    image = "stars-3.jpg",
     description = "A sculptor at his work in a monastery. Compare the design which illustrates the Eight of Pentacles. The apprentice or amateur therein has received his reward and is now at work in earnest. Divinatory Meanings= Metier, trade, skilled labour; usually, however, regarded as a card of nobility, aristocracy, renown, glory.",
     reversed = "Mediocrity, in work and otherwise, puerility, pettiness, weakness.",
     category = "pentacles"
@@ -345,7 +345,7 @@ var dataTarotCardsList = [
 
   [
     name = "Four of Pentacles",
-    image = "star-4.jpg",
+    image = "stars-4.jpg",
     description = "A crowned figure, having a pentacle over his crown, clasps another with hands and arms; two pentacles are under his feet. He holds to that which he has. Divinatory Meanings= The surety of possessions, cleaving to that which one has, gift, legacy, inheritance.",
     reversed = "Suspense, delay, opposition.",
     category = "pentacles"
@@ -353,7 +353,7 @@ var dataTarotCardsList = [
 
   [
     name = "Five of Pentacles",
-    image = "star-5.jpg",
+    image = "stars-5.jpg",
     description = "Two mendicants in a snow-storm pass a lighted casement. Divinatory Meanings= The card foretells material trouble above all, whether in the form illustrated - that is, destitution - or otherwise. For some cartomancists, it is a card of love and lovers-wife, husband, friend, mistress; also concordance, affinities. These alternatives cannot be harmonized.",
     reversed = "Disorder, chaos, ruin, discord, profligacy.",
     category = "pentacles"
@@ -361,7 +361,7 @@ var dataTarotCardsList = [
 
   [
     name = "Six of Pentacles",
-    image = "star-6.jpg",
+    image = "stars-6.jpg",
     description = "A person in the guise of a merchant weighs money in a pair of scales and distributes it to the needy and distressed. It is a testimony to his own success in life, as well as to his goodness of heart. Divinatory Meanings= Presents, gifts, gratification another account says attention, vigilance now is the accepted time, present prosperity, etc.",
     reversed = "Desire, cupidity, envy, jealousy, illusion.",
     category = "pentacles"
@@ -369,7 +369,7 @@ var dataTarotCardsList = [
 
   [
     name = "Seven of Pentacles",
-    image = "star-7.jpg",
+    image = "stars-7.jpg",
     description = "A young man, leaning on his staff, looks intently at seven pentacles attached to a clump of greenery on his right; one would say that these were his treasures and that his heart was there. Divinatory Meanings= These are exceedingly contradictory; in the main, it is a card of money, business, barter; but one reading gives altercation, quarrels - and another innocence, ingenuity, purgation.",
     reversed = "Cause for anxiety regarding money which it may be proposed to lend.",
     category = "pentacles"
@@ -377,7 +377,7 @@ var dataTarotCardsList = [
 
   [
     name = "Eight of Pentacles",
-    image = "star-8.jpg",
+    image = "stars-8.jpg",
     description = "An artist in stone at his work, which he exhibits in the form of trophies. Divinatory Meanings= Work, employment, commission, craftsmanship, skill in craft and business, perhaps in the preparatory stage.",
     reversed = "Voided ambition, vanity, cupidity, exaction, usury. It may also signify the possession of skill, in the sense of the ingenious mind turned to cunning and intrigue.",
     category = "pentacles"
@@ -385,7 +385,7 @@ var dataTarotCardsList = [
 
   [
     name = "Nine of Pentacles",
-    image = "star-9.jpg",
+    image = "stars-9.jpg",
     description = "A woman, with a bird upon her wrist, stands amidst a great abundance of grapevines in the garden of a manorial house. It is a wide domain, suggesting plenty in all things. Possibly it is her own possession and testifies to material well-being. Divinatory Meanings= Prudence, safety, success, accomplishment, certitude, discernment. ",
     reversed = "Roguery, deception, voided project, bad faith.",
     category = "pentacles"
@@ -393,7 +393,7 @@ var dataTarotCardsList = [
 
   [
     name = "Ten of Pentacles",
-    image = "star-10.jpg",
+    image = "stars-10.jpg",
     description = "A man and woman beneath an archway which gives entrance to a house and domain. They are accompanied by a child, who looks curiously at two dogs accosting an ancient personage seated in the foreground. The child's hand is on one of them. Divinatory Meanings= Gain, riches; family matters, archives, extraction, the abode of a family.",
     reversed = "Chance, fatality, loss, robbery, games of hazard; sometimes gift, dowry, pension.",
     category = "pentacles"
@@ -401,7 +401,7 @@ var dataTarotCardsList = [
 
   [
     name = "Page of Pentacles",
-    image = "star-thrall.jpg",
+    image = "stars-thrall.jpg",
     description = "A youthful figure, looking intently at the pentacle which hovers over his raised hands. He moves slowly, insensible of that which is about him. Divinatory Meanings= Application, study, scholarship, reflection another reading says news, messages and the bringer thereof; also rule, management.",
     reversed = "Prodigality, dissipation, liberality, luxury; unfavourable news.",
     category = "pentacles"
@@ -409,7 +409,7 @@ var dataTarotCardsList = [
 
   [
     name = "Knight of Pentacles",
-    image = "star-knight.jpg",
+    image = "stars-knight.jpg",
     description = "He rides a slow, enduring, heavy horse, to which his own aspect corresponds. He exhibits his symbol, but does not look therein. Divinatory Meanings= Utility, serviceableness, interest, responsibility, rectitude-all on the normal and external plane.",
     reversed = "Inertia, idleness, repose of that kind, stagnation; also placidity, discouragement, carelessness.",
     category = "pentacles"
@@ -417,7 +417,7 @@ var dataTarotCardsList = [
 
   [
     name = "Queen of Pentacles",
-    image = "star-queen.jpg",
+    image = "stars-queen.jpg",
     description = "The face suggests that of a dark woman, whose qualities might be summed up in the idea of greatness of soul; she has also the serious cast of intelligence; she contemplates her symbol and may see worlds therein. Divinatory Meanings= Opulence, generosity, magnificence, security, liberty.",
     reversed = "Evil, suspicion, suspense, fear, mistrust.",
     category = "pentacles"
@@ -425,7 +425,7 @@ var dataTarotCardsList = [
 
   [
     name = "King of Pentacles",
-    image = "star-king.jpg",
+    image = "stars-king.jpg",
     description = "The figure calls for no special description the face is rather dark, suggesting also courage, but somewhat lethargic in tendency. The bull's head should be noted as a recurrent symbol on the throne. The sign of this suit is represented throughout as engraved or blazoned with the pentagram, typifying the correspondence of the four elements in human nature and that by which they may be governed. In many old Tarot packs this suit stood for current coin, money, deniers. I have not invented the substitution of pentacles and I have no special cause to sustain in respect of the alternative. But the consensus of divinatory meanings is on the side of some change, because the cards do not happen to deal especially with questions of money. Divinatory Meanings= Valour, realizing intelligence, business and normal intellectual aptitude, sometimes mathematical gifts and attainments of this kind; success in these paths.",
     reversed = "Vice, weakness, ugliness, perversity, corruption, peril.",
     category = "pentacles"

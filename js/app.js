@@ -16,7 +16,7 @@ let app = {
   // resultReverse: {},
 
   init: function() {
-    
+
     console.log(app.init);
 
     app.elements.card = document.getElementById('card');
@@ -123,7 +123,7 @@ let app = {
     let reversed = pickedCard[3] = document.createElement('p');
     // TODO: Affichage à coder ici ou dans fonction reversed ?
     // TODO OU coder ici et affiché dans fonction reversed.
-    let category = pickedCard[4]
+    let category = pickedCard[4];
     let cat = document.createElement('img');
     cat.src = assetsCategories+category+'.svg';
 
@@ -132,7 +132,7 @@ let app = {
 
     // Retourne un array n'exécute pas le code
   //   return crochet ouvrant
-    
+
   //   image.innerHTML = '<img src="images/tarot-cards/'+ image + '" alt="Carte ' + name +'" />',
   //   category.innerHtml = '<img src="images/' + category + '.svg" alt="Icône ' + category +'" />',
   //   name.innerHtml = '<h2>' + name + '</h2>',
@@ -141,18 +141,27 @@ let app = {
   },
 
     // Affiche la carte et la cache tous les autres clics selon si pair ou impair
-  displayImage: function(buttonClick) {
+  displayImage: function(buttonClick, pickedCard) {
 
-    if (buttonClick %2) {
+    if (buttonClick %2 !== 0) {
+      console.log('Affiche la carte si buttonClick est pair');
       app.putCardInDOM(pickedCard);
       app.flipCard();
       app.elements.cardArcanaIconImage.style.display = "block";
-      console.log('Affiche la carte si buttonClick est pair');
+
+      return console.log('Display True'), true;
     } else {
       app.elements.cardBack = document.querySelector('.back');
-      app.elements.cardBack.style.display = "none";
+      app.elements.cardBack.style.display = "block";
+      // app.elements.cardBack.style.display = "none";
+      app.flipCard();
+      // TODO: flipcard() actif après avoir incrémenté buttonClick, sinon le front est affiché de base
+      // TODO: function qui renvoit toujours false... Trouver l'erreur
+      // Inverse le sens ?
+
+
       // app.flipCard();
-      
+
       // Valide uniquement dès 1er affichage d'une carte
       // app.elements.nameh2 = document.querySelector('.name h2');
       // app.elements.nameh2.style.display = "block";
@@ -164,7 +173,7 @@ let app = {
       console.log('Masque la carte si buttonClick est impair');
     }
 
-    return false;
+    return console.log('Display False'), false;
 
   },
 
@@ -182,18 +191,20 @@ let app = {
     }
   },
 
-  // Lancement compteur + carte aléatoire + affichage 
+  // Lancement compteur + carte aléatoire + affichage
   handleCardButtonClick: function() {
 
     app.preventDefault(event);
     // app.buttonCounter();
     app.randomCard();
+    // app.putCardInHtml(pickedCard);
+    // app.putCardInDOM(pickedCard);
     app.displayImage();
     app.reverseCard();
     // app.hideHailing();
 
     console.log('Lancement compteur + carte aléatoire + affichage');
-    return false;    
+    return false;
   },
 
   preventDefault: function(event) {
@@ -207,7 +218,7 @@ let app = {
     app.elements.hailing.style.display = "none";
   }
 
-  
+
 };
 
 document.addEventListener('DOMContentLoaded', app.init);

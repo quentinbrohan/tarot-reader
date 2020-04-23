@@ -36,6 +36,7 @@ let app = {
 
     app.buttonClick = app.buttonClick + 1;
     console.log('buttonClick: ' + app.buttonClick);
+    app.handleCardButtonClick();
   },
 
   // Carte aléatoire
@@ -65,12 +66,16 @@ let app = {
 
   putCardInDOM: function(pickedCard) {
 
+    // // PutCardInHtml doit(?) retourner un array avec les valeurs valeurs de createElement de chaque élément.
+    // L'implantation se fera ici dans le DOM
+    // Uncaught ReferenceError: putCardInHtml is not defined
+    // Il faudrait juste récuper le return de putCardInHtml, la partie xxx = hhtml[y] n'est pas nécessaire
     var html = putCardInHtml(pickedCard);
 
-    image = html[1];
-    category = html[4];
-    name = html[0];
-    description = html[2];
+    // image = html[1];
+    // category = html[4];
+    // name = html[0];
+    // description = html[2];
 
     // Elements HTML
     app.elements.cardFrontImage = document.querySelector('img#front.fateButton');
@@ -113,21 +118,32 @@ let app = {
     var assetsCards = "../images/tarot-cards/";
     var assetsCategories = "../images/";
 
-    let name = pickedCard[0] = document.createElement('h2');
-    name.innerHTML = name;
+    let name = pickedCard[0]
+    cardName = document.createElement('h2');
+    // cardName.innerHTML = name;
     let image = pickedCard[1];
     let img = document.createElement('img');
-    img.src = assetsCards+image;
-    let description = pickedCard[2] = document.createElement('p');
-    description.innerHTML = description;
+    // img.src = assetsCards+image;
+    let description = pickedCard[2]
+    cardDescription = document.createElement('p');
+    // cardDescription.innerHTML = description;
     let reversed = pickedCard[3] = document.createElement('p');
     // TODO: Affichage à coder ici ou dans fonction reversed ?
     // TODO OU coder ici et affiché dans fonction reversed.
     let category = pickedCard[4];
     let cat = document.createElement('img');
-    cat.src = assetsCategories+category+'.svg';
+    // cat.src = assetsCategories+category+'.svg';
 
     console.log('Place la carte dans l\'HTML');
+
+    // Fonctionne avec un append.
+    // // TODO: corrigé img.src "not defined"
+    return [
+      cardName.innerHTML = name,
+      img.src = assetsCards+image,
+      cardDescription.innerHTML = description,
+      cat.src = assetsCategories+category+'.svg'
+    ]
     // Affiche la carte dans la page web
 
     // Retourne un array n'exécute pas le code
@@ -144,10 +160,10 @@ let app = {
   displayImage: function(buttonClick, pickedCard) {
 
     if (buttonClick %2 !== 0) {
-      console.log('Affiche la carte si buttonClick est pair');
       app.putCardInDOM(pickedCard);
       app.flipCard();
       app.elements.cardArcanaIconImage.style.display = "block";
+      console.log('Affiche la carte si buttonClick est pair');
 
       return console.log('Display True'), true;
     } else {

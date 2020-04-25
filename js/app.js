@@ -69,13 +69,13 @@ let app = {
     // // PutCardInHtml doit(?) retourner un array avec les valeurs valeurs de createElement de chaque élément.
     // L'implantation se fera ici dans le DOM
     // Uncaught ReferenceError: putCardInHtml is not defined
-    // Il faudrait juste récuper le return de putCardInHtml, la partie xxx = hhtml[y] n'est pas nécessaire
-    var html = putCardInHtml(pickedCard);
+    // Il faudrait juste récuper le return de putCardInHtml
+    var html = app.putCardInHtml(pickedCard);
 
-    // image = html[1];
-    // category = html[4];
-    // name = html[0];
-    // description = html[2];
+    image = html[1];
+    category = html[4];
+    name = html[0];
+    description = html[2];
 
     // Elements HTML
     app.elements.cardFrontImage = document.querySelector('img#front.fateButton');
@@ -118,13 +118,13 @@ let app = {
     var assetsCards = "../images/tarot-cards/";
     var assetsCategories = "../images/";
 
-    let name = pickedCard[0]
+    let name = pickedCard[0];
     cardName = document.createElement('h2');
     // cardName.innerHTML = name;
     let image = pickedCard[1];
     let img = document.createElement('img');
     // img.src = assetsCards+image;
-    let description = pickedCard[2]
+    let description = pickedCard[2];
     cardDescription = document.createElement('p');
     // cardDescription.innerHTML = description;
     let reversed = pickedCard[3] = document.createElement('p');
@@ -171,12 +171,6 @@ let app = {
       app.elements.cardBack.style.display = "block";
       // app.elements.cardBack.style.display = "none";
       app.flipCard();
-      // TODO: flipcard() actif après avoir incrémenté buttonClick, sinon le front est affiché de base
-      // TODO: function qui renvoit toujours false... Trouver l'erreur
-      // Inverse le sens ?
-
-
-      // app.flipCard();
 
       // Valide uniquement dès 1er affichage d'une carte
       // app.elements.nameh2 = document.querySelector('.name h2');
@@ -194,10 +188,10 @@ let app = {
   },
 
   //Rotation 180 degrés de la carte si true
-  reverseCard: function(buttonClick) {
+  reverseCard: function(buttonClick, pickedCard) {
 
     var isReversed = [true, false];
-    cardReversedDescription = '<p> <span class="reversed__text">Reversed: </span>' + reversed + '</p>';
+    cardReversedDescription.innerHTML = '<p> <span class="reversed__text">Reversed: </span>' + reversed + '</p>';
     isReversed = (isReversed[Math.floor(Math.random() * isReversed.length)]);
     console.log(isReversed);
 

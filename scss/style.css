@@ -166,6 +166,13 @@ figure {
   height: 100%;
 }
 
+.arcana-icon,
+.name,
+.description,
+.reversed {
+  margin: 0.5em 0;
+}
+
 .fateButton:focus {
   outline: none;
 }

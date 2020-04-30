@@ -1,15 +1,6 @@
 let app = {
 
-  // TODO:
-  // - Corriger putCardInDOM() et putCardInHtml()
-  // - displayImage() va directement sur else + Partie du code en // car affichage HTML/DOM non OK pour le moment = error
-  // - hideHailing() en // dans handle...() car displayImage non fonctionnelle actuellement.
-  // - Ajouter classList pour DOM -> transitions textes slide-in/out
-  // - Corriger isReversed()
-  // - Nettoyer code
-
   // Propriétés
-
   buttonClick: 0,
   elements: {},
   pickedCard: {},
@@ -23,7 +14,7 @@ let app = {
 
     app.startListener();
 
-    app.handleCardButtonClick();
+    // app.handleCardButtonClick();
   },
 
   startListener: function() {
@@ -72,7 +63,7 @@ let app = {
     // Il faudrait juste récuper le return de putCardInHtml
     var html = app.putCardInHtml(pickedCard);
 
-    image = html[1];
+    img = html[1];
     category = html[4];
     name = html[0];
     description = html[2];
@@ -96,10 +87,10 @@ let app = {
   }
 
     // Injection de la carte dans le DOM
-    app.elements.cardFront.append(img).style.display = "none";
-    app.elements.cardArcanaIcon.append(category).style.display = "none";
-    app.elements.cardName.append(name).style.display = "none";
-    app.elements.cardDescription.append(description).style.display = "none";
+    app.elements.cardFront.append(img);
+    app.elements.cardArcanaIcon.append(category);
+    app.elements.cardName.append(name);
+    app.elements.cardDescription.append(description);
 
 
     console.log('Carte tirée placée dans le DOM');
@@ -159,10 +150,10 @@ let app = {
     // Affiche la carte et la cache tous les autres clics selon si pair ou impair
   displayImage: function(buttonClick, pickedCard) {
 
-    if (buttonClick %2 !== 0) {
-      app.putCardInDOM(pickedCard);
+    if (app.buttonClick %2 !== 0) {
+      app.putCardInDOM(buttonClick, pickedCard);
       app.flipCard();
-      app.elements.cardArcanaIconImage.style.display = "block";
+      // app.elements.cardArcanaIconImage.style.display = "block";
       console.log('Affiche la carte si buttonClick est pair');
 
       return console.log('Display True'), true;
@@ -191,13 +182,14 @@ let app = {
   reverseCard: function(buttonClick, pickedCard) {
 
     var isReversed = [true, false];
+    cardReversedDescription = '';
     cardReversedDescription.innerHTML = '<p> <span class="reversed__text">Reversed: </span>' + reversed + '</p>';
     isReversed = (isReversed[Math.floor(Math.random() * isReversed.length)]);
     console.log(isReversed);
 
     if (isReversed && (buttonClick % 2)) {
       app.elements.cardFrontImage.classList = "reversed img";
-      app.elements.cardDescription.append(cardReversedDescription).style.display = 'none';
+      app.elements.cardDescription.append(cardReversedDescription);
     }
   },
 
@@ -209,9 +201,10 @@ let app = {
     app.randomCard();
     // app.putCardInHtml(pickedCard);
     // app.putCardInDOM(pickedCard);
-    app.displayImage();
+    // app.displayImage(buttonClick, pickedCard);
+    app.displayImage(pickedCard);
+    app.hideHailing();
     app.reverseCard();
-    // app.hideHailing();
 
     console.log('Lancement compteur + carte aléatoire + affichage');
     return false;

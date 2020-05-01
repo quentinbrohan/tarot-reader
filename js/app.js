@@ -49,7 +49,7 @@ let app = {
     }
   },
 
-  putCardInDOM: function(pickedCard) {
+  putCardInDOM: function(pickedCard, isReversed) {
 
     // // PutCardInHtml doit(?) retourner un array avec les valeurs valeurs de createElement de chaque élément.
     // L'implantation se fera ici dans le DOM
@@ -68,6 +68,11 @@ let app = {
 
     name = html[0]; 
     description = html[2];
+
+    isReversed = app.reverseCard();
+    reversed = html[3];
+    console.warn(reversed);
+    
 
     // Elements HTML
     app.elements.cardFrontImage = document.querySelector('img#frontCard');
@@ -112,10 +117,19 @@ let app = {
     // document.body.innerHTML = description;
     app.elements.cardDescription.innerHTML = description;
 
-
+    console.warn('Reversed =' + isReversed);
+    
+    // Si isReversed = true
+    if (isReversed === true) {
+      if (app.elements.cardFrontImage = document.querySelector('img#frontCard')) {
+        app.elements.cardFrontImage.classList.add('reversed');
+        console.warn('Reverse img'); 
+      }
+      app.elements.cardDescription.innerHTML += '<strong>Reversed</strong>: ' + html[3];
+    }
 
     console.log('Carte tirée placée dans le DOM');
-    return false;
+    // return false;
 
   },
 
@@ -156,35 +170,20 @@ let app = {
       cardReversed = reversed,
       cat = assetsCategories+category+'.svg'
     ]
-    // Affiche la carte dans la page web
-
-    // Retourne un array n'exécute pas le code
-  //   return crochet ouvrant
-
-  //   image.innerHTML = '<img src="images/tarot-cards/'+ image + '" alt="Carte ' + name +'" />',
-  //   category.innerHtml = '<img src="images/' + category + '.svg" alt="Icône ' + category +'" />',
-  //   name.innerHtml = '<h2>' + name + '</h2>',
-  //   description.innerHtml = '<p>' + description + '</p>',
-  // crochet fermant
   },
 
     // Affiche la carte et la cache tous les autres clics selon si pair ou impair
-  displayImage: function(buttonClick, pickedCard) {
+  displayImage: function(buttonClick, pickedCard, isReversed) {
 
     if (app.buttonClick %2 !== 0) {
-      app.putCardInDOM(buttonClick, pickedCard);
+      app.putCardInDOM(buttonClick, pickedCard, isReversed);
       app.flipCard();
-      // app.elements.cardArcanaIconImage.style.display = "block";
       console.log('Affiche la carte si buttonClick est pair');
 
       return console.log('Display True'), true;
     } else {
       app.elements.cardBack = document.querySelector('.back');
-      // app.elements.cardBack.style.display = "block";
-      // app.elements.cardBack.style.display = "none";
       app.flipCard();
-      // app.toggleCardDetails();
-      // app.toggleHailing();
       console.log('Masque la carte si buttonClick est impair');
     }
 
@@ -193,33 +192,23 @@ let app = {
   },
 
   //Rotation 180 degrés de la carte si true
-  reverseCard: function(buttonClick, pickedCard) {
-
-    // cardReversedDescription = app.putCardInHtml(pickedCard);
-
-    app.elements.cardFrontImage = document.querySelector('img#frontCard');
-    app.elements.cardDescription = document.querySelector('section.description');
-
+  reverseCard: function() {
 
     var isReversed = [true, false];
 
-    cardReversedDescription = app.pickedCard[3];
-    console.log(cardReversedDescription);
-    
-    // cardReversedDescription = document.createElement('p');
-    // cardReversedDescription.classList = 'reversed__text';
-    
 
     // cardReversedDescription.innerHTML = '<p> <span class="reversed__text">Reversed: </span>' + reversed + '</>';
     isReversed = (isReversed[Math.floor(Math.random() * isReversed.length)]);
     console.log('is Reversed = ' + isReversed);
 
-    if (isReversed && buttonClick % 2 !== 0) {
-      if (app.elements.cardFrontImage = document.querySelector('img#frontCard')) {
-        app.elements.cardFrontImage.classList.add('reversed');
-      }
-      app.elements.cardDescription.innerHTML += '<strong>' + cardReversedDescription + '</strong>';
-    }
+    return isReversed;
+
+    // if (isReversed && buttonClick % 2 !== 0) {
+    //   if (app.elements.cardFrontImage = document.querySelector('img#frontCard')) {
+    //     app.elements.cardFrontImage.classList.add('reversed');
+    //   }
+    //   app.elements.cardDescription.innerHTML += '<strong>' + cardReversedDescription + '</strong>';
+    // }
   },
 
   // Lancement compteur + carte aléatoire + affichage

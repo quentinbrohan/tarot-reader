@@ -121,16 +121,17 @@ figure {
     text-align: center;
 }
 
-.description p {
+.description {
     display: inline-block;
     padding: 1rem 0;
     width: 75%;
     line-height: 150%;
 }
 
+.name,
 .name h2 {
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color:$colorblood;
 }
 
@@ -152,16 +153,24 @@ figure {
     margin: 0.5em 0;
 }
 
+.hide {
+    visibility: hidden;
+}
+
+.reveal {
+    visibility: visible;
+}
+
+strong {
+    font-weight: bold;
+}
+
 .fateButton:focus {
     outline: none;
 }
 
-.reversed img {
+img.reversed {
     transform: rotate(180deg);
-}
-
-.reversed__text {
-    font-weight: bold;
 }
 
 footer {

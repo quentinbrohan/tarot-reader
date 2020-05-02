@@ -128,6 +128,7 @@ figure {
 
 .hailing h1 {
   color: #e42a2d;
+  font-weight: 500;
 }
 
 .hailing img {
@@ -147,6 +148,12 @@ figure {
   padding: 1rem 0;
   width: 75%;
   line-height: 150%;
+}
+
+.description > p {
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
 .name,
@@ -191,6 +198,16 @@ strong {
 }
 
 img.reversed {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+img.reversed ::before {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+img.reversed ::after {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }

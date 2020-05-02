@@ -2,46 +2,40 @@ const assetsCards = "../images/tarot-cards/";
 const assetsCategories = "../images/";
 
 let app = {
-
   // Propriétés
   buttonClick: 0,
   elements: {},
   pickedCard: {},
-  // resultReverse: {},
 
-  init: function() {
-
-    console.log(app.init);
-
-    app.elements.card = document.getElementById('card');
+  init: function () {
+    app.elements.card = document.getElementById("card");
 
     app.startListener();
   },
 
-  startListener: function() {
-
-    app.elements.card.addEventListener('click', app.buttonCounter);
+  startListener: function () {
+    app.elements.card.addEventListener("click", app.buttonCounter);
   },
 
   // Compteur de carte
-  buttonCounter: function() {
-
+  buttonCounter: function () {
     app.buttonClick = app.buttonClick + 1;
-    console.log('buttonClick: ' + app.buttonClick);
+    // console.log("buttonClick: " + app.buttonClick);
     app.handleCardButtonClick();
   },
 
   // Carte aléatoire
-  randomCard: function() {
-
-    return pickedCard = (dataTarotCardsList[Math.floor(Math.random() * dataTarotCardsList.length)]);
+  randomCard: function () {
+    return (pickedCard =
+      dataTarotCardsList[
+        Math.floor(Math.random() * dataTarotCardsList.length)
+      ]);
   },
 
   // Animation rotation R/V 180deg de la carte selon rotation en cours
   flipCard: function () {
-
     if (app.elements.card.className === "card") {
-      if(app.elements.card.style.transform == "rotateY(180deg)") {
+      if (app.elements.card.style.transform == "rotateY(180deg)") {
         app.elements.card.style.transform = "rotateY(0deg)";
       } else {
         app.elements.card.style.transform = "rotateY(180deg)";
@@ -49,171 +43,124 @@ let app = {
     }
   },
 
-  putCardInDOM: function(pickedCard, isReversed) {
-
-    // // PutCardInHtml doit(?) retourner un array avec les valeurs valeurs de createElement de chaque élément.
+  putCardInDOM: function (pickedCard, isReversed) {
     // L'implantation se fera ici dans le DOM
-    // Uncaught ReferenceError: putCardInHtml is not defined
-    // Il faudrait juste récuper le return de putCardInHtml
     var html = app.putCardInHtml(pickedCard);
 
-    img = document.createElement('img');
-    img.id = 'frontCard';
+    img = document.createElement("img");
+    img.id = "frontCard";
     img.src = html[1];
-    
-    category = document.createElement('img');
-    category.id = 'cardCategory'
-    category.classList = 'arcana-icon';
+
+    category = document.createElement("img");
+    category.id = "cardCategory";
+    category.classList = "arcana-icon";
     category.src = html[4];
 
-    name = html[0]; 
+    name = html[0];
     description = html[2];
 
     isReversed = app.reverseCard();
-    reversed = html[3];
-    console.warn(reversed);
-    
 
     // Elements HTML
-    app.elements.cardFrontImage = document.querySelector('img#frontCard');
-    app.elements.cardFront = document.querySelector('figure.front.fateButton');
-    app.elements.cardArcanaIconImage = document.querySelector('.arcana-icon img');
-    app.elements.cardArcanaIcon = document.querySelector('section.arcana-icon');
-    app.elements.cardName = document.querySelector('section.name');
-    app.elements.cardDescription = document.querySelector('section.description');
-
-
+    app.elements.cardFrontImage = document.querySelector("img#frontCard");
+    app.elements.cardFront = document.querySelector("figure.front.fateButton");
+    app.elements.cardArcanaIconImage = document.querySelector(
+      ".arcana-icon img"
+    );
+    app.elements.cardArcanaIcon = document.querySelector("section.arcana-icon");
+    app.elements.cardName = document.querySelector("section.name");
+    app.elements.cardDescription = document.querySelector(
+      "section.description"
+    );
 
     // Précharge les infos de la carte tirée
-
 
     // Injection de la carte dans le DOM
     // Si #frontCard exite = src
     // Si non = append
-    if (document.querySelector('img#frontCard')) {
-      app.elements.cardFrontImage = document.querySelector('img#frontCard');
+    if (document.querySelector("img#frontCard")) {
+      app.elements.cardFrontImage = document.querySelector("img#frontCard");
       app.elements.cardFrontImage.src = html[1];
-      // app.elements.cardFrontImage.src = img;
-      console.log('Src replace ='+img);
-      
     } else {
       app.elements.cardFront.append(img);
-    };
-    if (document.querySelector('#cardCategory')) {
-      app.elements.cardArcanaIcon = document.querySelector('#cardCategory');
-      app.elements.cardArcanaIcon.src =  html[4];
+    }
+    if (document.querySelector("#cardCategory")) {
+      app.elements.cardArcanaIcon = document.querySelector("#cardCategory");
+      app.elements.cardArcanaIcon.src = html[4];
     } else {
       app.elements.cardArcanaIcon.append(category);
     }
-    app.elements.cardName.textContent = name ;
-    // app.elements.cardDescription.textContent = description;
+    app.elements.cardName.textContent = name;
 
     // Séparation de la description en plusieurs paragraphes (marqué par  "Divinatory Meanings =")
-    description = description.split(' Divinatory Meanings:');
+    description = description.split(" Divinatory Meanings:");
     for (let i = 0; i < description.length; i++)
-    description[i] = description[i] + '<br>';
-    description = description.join(' <strong>Divinatory Meanings</strong>:');
+      description[i] = description[i]+ '</p>' + "<br>";
+    description = description.join(" <strong>Divinatory Meanings</strong>:");
 
-    // document.body.innerHTML = description;
-    app.elements.cardDescription.innerHTML = description;
+    app.elements.cardDescription.innerHTML = '<p>' + description +'</p>';
 
-    console.warn('Reversed =' + isReversed);
-    
     // Si isReversed = true
     if (isReversed === true) {
-      if (app.elements.cardFrontImage = document.querySelector('img#frontCard')) {
-        app.elements.cardFrontImage.classList.add('reversed');
-        console.warn('Reverse img'); 
+      if (
+        (app.elements.cardFrontImage = document.querySelector("img#frontCard"))
+      ) {
+        app.elements.cardFrontImage.classList.add("reversed");
       }
-      app.elements.cardDescription.innerHTML += '<strong>Reversed</strong>: ' + html[3];
+      app.elements.cardDescription.innerHTML +=
+        "<strong>Reversed</strong>: " + '<p>' + html[3] + '</p>';
     }
 
-    console.log('Carte tirée placée dans le DOM');
+    // console.log("Carte tirée placée dans le DOM");
     // return false;
-
   },
 
-  putCardInHtml: function(pickedCard) {
-
-    // var cardName = 'name';
-    // var cardImage = 'image';
-    // var cardDescription = 'description';
-    // var cardReversed = 'reversed';
-    // var cardCategory = 'category';
-
-
+  putCardInHtml: function (pickedCard) {
     let name = pickedCard[0];
-    // cardName = document.createElement('h2');
-    // cardName.innerHTML = name;
     let image = pickedCard[1];
-    // let img = document.createElement('img');
-    // img.src = assetsCards+image;
     let description = pickedCard[2];
-    // cardDescription = document.createElement('p');
-    // cardDescription.innerHTML = description;
     let reversed = pickedCard[3];
-    // cardReversed = document.createElement('p');
-    // TODO: Affichage à coder ici ou dans fonction reversed ?
-    // TODO OU coder ici et affiché dans fonction reversed.
     let category = pickedCard[4];
-    // let cat = document.createElement('img');
-    // cat.src = assetsCategories+category+'.svg';
 
-    console.log('Place la carte dans l\'HTML');
+    // console.log("Place la carte dans l'HTML");
 
-    // Fonctionne avec un append.
-    // // TODO: corrigé img.src "not defined"
     return [
-      cardName = name,
-      img = assetsCards+image,
-      cardDescription = description,
-      cardReversed = reversed,
-      cat = assetsCategories+category+'.svg'
-    ]
+      (cardName = name),
+      (img = assetsCards + image),
+      (cardDescription = description),
+      (cardReversed = reversed),
+      (cat = assetsCategories + category + ".svg"),
+    ];
   },
 
-    // Affiche la carte et la cache tous les autres clics selon si pair ou impair
-  displayImage: function(buttonClick, pickedCard, isReversed) {
-
-    if (app.buttonClick %2 !== 0) {
+  // Affiche la carte et la cache tous les autres clics selon si pair ou impair
+  displayImage: function (buttonClick, pickedCard, isReversed) {
+    if (app.buttonClick % 2 !== 0) {
       app.putCardInDOM(buttonClick, pickedCard, isReversed);
       app.flipCard();
-      console.log('Affiche la carte si buttonClick est pair');
+      // console.log("Affiche la carte si buttonClick est pair");
 
-      return console.log('Display True'), true;
+      return true;
     } else {
-      app.elements.cardBack = document.querySelector('.back');
+      app.elements.cardBack = document.querySelector(".back");
       app.flipCard();
-      console.log('Masque la carte si buttonClick est impair');
+      // console.log("Masque la carte si buttonClick est impair");
     }
 
-    return console.log('Display False'), false;
-
+    return false;
   },
 
   //Rotation 180 degrés de la carte si true
-  reverseCard: function() {
-
+  reverseCard: function () {
     var isReversed = [true, false];
 
-
-    // cardReversedDescription.innerHTML = '<p> <span class="reversed__text">Reversed: </span>' + reversed + '</>';
-    isReversed = (isReversed[Math.floor(Math.random() * isReversed.length)]);
-    console.log('is Reversed = ' + isReversed);
+    isReversed = isReversed[Math.floor(Math.random() * isReversed.length)];
 
     return isReversed;
-
-    // if (isReversed && buttonClick % 2 !== 0) {
-    //   if (app.elements.cardFrontImage = document.querySelector('img#frontCard')) {
-    //     app.elements.cardFrontImage.classList.add('reversed');
-    //   }
-    //   app.elements.cardDescription.innerHTML += '<strong>' + cardReversedDescription + '</strong>';
-    // }
   },
 
   // Lancement compteur + carte aléatoire + affichage
-  handleCardButtonClick: function() {
-
+  handleCardButtonClick: function () {
     app.preventDefault(event);
     app.randomCard();
     app.displayImage(pickedCard);
@@ -221,45 +168,42 @@ let app = {
     app.reverseCard();
     app.toggleCardDetails();
 
-    console.warn('Lancement compteur + carte aléatoire + affichage effectué');
+    // console.log("Lancement compteur + carte aléatoire + affichage effectué");
     return false;
   },
 
-  preventDefault: function(event) {
+  preventDefault: function (event) {
     event.preventDefault();
   },
 
   // Masque le texte d'intro après 1er clic sur la carte
   // Et gère affichage ensuite
-  toggleHailing: function() {
+  toggleHailing: function () {
+    app.elements.hailing = document.querySelector(".hailing");
 
-    app.elements.hailing = document.querySelector('.hailing');
-
-    app.elements.details = document.querySelector('div.card-details.aligner');
+    app.elements.details = document.querySelector("div.card-details.aligner");
 
     app.elements.hailing.style.display = "none";
-    
+
     if (app.buttonClick > 1 && app.elements.details.style.display === "block") {
-    if (app.elements.hailing.style.display === "none") {
-      app.elements.hailing.style.display = "block";
-    } else {
-      app.elements.hailing.style.display = "none";
+      if (app.elements.hailing.style.display === "none") {
+        app.elements.hailing.style.display = "block";
+      } else {
+        app.elements.hailing.style.display = "none";
+      }
     }
-  }
   },
 
   // Affiche/ masque les détails de la carte selon valeur présente
-  toggleCardDetails: function() {
-
-    app.elements.details = document.querySelector('div.card-details.aligner');
-    // app.elements.details.classList.add('hide');
+  toggleCardDetails: function () {
+    app.elements.details = document.querySelector("div.card-details.aligner");
 
     if (app.elements.details.style.display === "block") {
-        app.elements.details.style.display = "none";
-      } else {
-        app.elements.details.style.display = "block";
-      }
+      app.elements.details.style.display = "none";
+    } else {
+      app.elements.details.style.display = "block";
+    }
   },
 };
 
-document.addEventListener('DOMContentLoaded', app.init);
+document.addEventListener("DOMContentLoaded", app.init);

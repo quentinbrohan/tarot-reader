@@ -7,9 +7,3 @@ Pick a card and face your fate.
 Personnal project based on DOM manipulation while training at [oClock School](https://oclock.io/).\
 Illustrations from [Winslow Dumaine](http://www.winslowdumaine.com/tarot).\
 Data from Travis McHenry's book: [An Occult Guide to the Tarot](https://www.barnesandnoble.com/w/an-occult-guide-to-the-tarot-travis-mchenry/1123404538).
-
-
-TODO:
-- [ ] Exploser String pour rajouter ```<br>``` avant 'Divinatory meanings' dans description. Utiliser innerHTML au lieu de textContent
-- [ ] Ajouter reversed
-- [ ] Animations slide-in (ou opacité)

@@ -73,6 +73,10 @@ let app = {
       "section.description"
     );
 
+    if (document.querySelector('img#frontCard.reversed')) {
+      document.querySelector('img#frontCard.reversed').classList.remove('reversed');
+    }
+
     // Précharge les infos de la carte tirée
 
     // Injection de la carte dans le DOM
@@ -80,7 +84,7 @@ let app = {
     // Si non = append
     if (document.querySelector("img#frontCard")) {
       app.elements.cardFrontImage = document.querySelector("img#frontCard");
-      app.elements.cardFrontImage.src = html[1];
+      app.elements.className = 'null';
     } else {
       app.elements.cardFront.append(img);
     }

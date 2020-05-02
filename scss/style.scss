@@ -178,12 +178,6 @@ strong {
 
 img.reversed {
     transform: rotate(180deg);
-    ::before {
-    transform: rotate(180deg);
-    }
-    ::after {
-        transform: rotate(180deg);
-        }
 }
 
 footer {

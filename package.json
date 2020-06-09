@@ -1,0 +1,12 @@
+{
+    "name": "tarot-reader",
+    "version": "1.0.0",
+    "description": "Face your fate",
+    "scripts": {
+      "start": "serve",
+    },
+    "dependencies": {
+      "serve": "^10.0.1"
+    },
+    "author": "Quentin Brohan"
+  }

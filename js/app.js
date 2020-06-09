@@ -8,13 +8,13 @@ let app = {
   pickedCard: {},
 
   init: function () {
-    app.elements.card = document.getElementById("card");
+    card = document.getElementById("card");
 
     app.startListener();
   },
 
   startListener: function () {
-    app.elements.card.addEventListener("click", app.buttonCounter);
+    card.addEventListener("click", app.buttonCounter);
   },
 
   // Compteur de carte
@@ -34,11 +34,11 @@ let app = {
 
   // Animation rotation R/V 180deg de la carte selon rotation en cours
   flipCard: function () {
-    if (app.elements.card.className === "card") {
-      if (app.elements.card.style.transform == "rotateY(180deg)") {
-        app.elements.card.style.transform = "rotateY(0deg)";
+    if (card.className === "card") {
+      if (card.style.transform == "rotateY(180deg)") {
+        card.style.transform = "rotateY(0deg)";
       } else {
-        app.elements.card.style.transform = "rotateY(180deg)";
+        card.style.transform = "rotateY(180deg)";
       }
     }
   },
@@ -62,14 +62,14 @@ let app = {
     isReversed = app.reverseCard();
 
     // Elements HTML
-    app.elements.cardFrontImage = document.querySelector("img#frontCard");
-    app.elements.cardFront = document.querySelector("figure.front.fateButton");
-    app.elements.cardArcanaIconImage = document.querySelector(
+    cardFrontImage = document.querySelector("img#frontCard");
+    cardFront = document.querySelector("figure.front.fateButton");
+    cardArcanaIconImage = document.querySelector(
       ".arcana-icon img"
     );
-    app.elements.cardArcanaIcon = document.querySelector("section.arcana-icon");
-    app.elements.cardName = document.querySelector("section.name");
-    app.elements.cardDescription = document.querySelector(
+    cardArcanaIcon = document.querySelector("section.arcana-icon");
+    cardName = document.querySelector("section.name");
+    cardDescription = document.querySelector(
       "section.description"
     );
 
@@ -83,36 +83,37 @@ let app = {
     // Si #frontCard exite = src
     // Si non = append
     if (document.querySelector("img#frontCard")) {
-      app.elements.cardFrontImage = document.querySelector("img#frontCard");
-      app.elements.className = 'null';
+      cardFrontImage = document.querySelector("img#frontCard");
+      cardFrontImage.src = html[1];
     } else {
-      app.elements.cardFront.append(img);
+      cardFront.append(img);
     }
     if (document.querySelector("#cardCategory")) {
-      app.elements.cardArcanaIcon = document.querySelector("#cardCategory");
-      app.elements.cardArcanaIcon.src = html[4];
+      cardArcanaIcon = document.querySelector("#cardCategory");
+      cardArcanaIcon.src = html[4];
     } else {
-      app.elements.cardArcanaIcon.append(category);
+      cardArcanaIcon.append(category);
     }
-    app.elements.cardName.textContent = name;
+    cardName.textContent = name;
 
     // Séparation de la description en plusieurs paragraphes (marqué par  "Divinatory Meanings =")
     description = description.split(" Divinatory Meanings:");
+
     for (let i = 0; i < description.length; i++)
       description[i] = description[i]+ '</p>' + "<br>";
     description = description.join(" <strong>Divinatory Meanings</strong>:");
 
-    app.elements.cardDescription.innerHTML = '<p>' + description +'</p>';
+    cardDescription.innerHTML = '<p>' + description +'</p>';
 
     // Si isReversed = true
     if (isReversed === true) {
       if (
-        (app.elements.cardFrontImage = document.querySelector("img#frontCard"))
+        (cardFrontImage = document.querySelector("img#frontCard"))
       ) {
-        app.elements.cardFrontImage.classList.add("reversed");
+        cardFrontImage.classList.add("reversed");
       }
-      app.elements.cardDescription.innerHTML +=
-        "<strong>Reversed</strong>: " + '<p>' + html[3] + '</p>';
+      cardDescription.innerHTML +=
+        "<p><strong>Reversed</strong>: " + html[3] + '</p>';
     }
 
     // console.log("Carte tirée placée dans le DOM");
@@ -146,7 +147,7 @@ let app = {
 
       return true;
     } else {
-      app.elements.cardBack = document.querySelector(".back");
+      cardBack = document.querySelector(".back");
       app.flipCard();
       // console.log("Masque la carte si buttonClick est impair");
     }
@@ -158,9 +159,7 @@ let app = {
   reverseCard: function () {
     var isReversed = [true, false];
 
-    isReversed = isReversed[Math.floor(Math.random() * isReversed.length)];
-
-    return isReversed;
+    return isReversed = isReversed[Math.floor(Math.random() * isReversed.length)];
   },
 
   // Lancement compteur + carte aléatoire + affichage
@@ -183,29 +182,28 @@ let app = {
   // Masque le texte d'intro après 1er clic sur la carte
   // Et gère affichage ensuite
   toggleHailing: function () {
-    app.elements.hailing = document.querySelector(".hailing");
+    hailing = document.querySelector(".hailing");
+    details = document.querySelector("div.card-details.aligner");
 
-    app.elements.details = document.querySelector("div.card-details.aligner");
+    hailing.style.display = "none";
 
-    app.elements.hailing.style.display = "none";
-
-    if (app.buttonClick > 1 && app.elements.details.style.display === "block") {
-      if (app.elements.hailing.style.display === "none") {
-        app.elements.hailing.style.display = "block";
+    if (app.buttonClick > 1 && details.style.display === "block") {
+      if (hailing.style.display === "none") {
+        hailing.style.display = "block";
       } else {
-        app.elements.hailing.style.display = "none";
+        hailing.style.display = "none";
       }
     }
   },
 
   // Affiche/ masque les détails de la carte selon valeur présente
   toggleCardDetails: function () {
-    app.elements.details = document.querySelector("div.card-details.aligner");
+    details = document.querySelector("div.card-details.aligner");
 
-    if (app.elements.details.style.display === "block") {
-      app.elements.details.style.display = "none";
+    if (details.style.display === "block") {
+      details.style.display = "none";
     } else {
-      app.elements.details.style.display = "block";
+      details.style.display = "block";
     }
   },
 };

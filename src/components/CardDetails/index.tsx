@@ -7,6 +7,7 @@ import { ReactComponent as WandsIcon } from '../../assets/images/arcana/wands.sv
 import { REVEAL_LEFT } from '../../constants';
 import { ArcanaCategory, Card } from '../../types/cards';
 import styles from './CardDetails.module.scss';
+import stylesDeck from '../Deck/Deck.module.scss';
 
 interface CardDetailsProps {
   card: Card;
@@ -19,15 +20,15 @@ interface MajorArcanaIconProps {
 const MajorArcanaIcon: React.FC<MajorArcanaIconProps> = ({ category }) => {
   switch (category) {
     case 'major':
-      return <MajorIcon className={styles.arcanaIcon} title="Major" />;
+      return <MajorIcon className={stylesDeck.arcanaIcon} title="Major" />;
     case 'cups':
-      return <CupsIcon className={styles.arcanaIcon} title="Cups" />;
+      return <CupsIcon className={stylesDeck.arcanaIcon} title="Cups" />;
     case 'pentacles':
-      return <PentaclesIcon className={styles.arcanaIcon} title="Pentacles" />;
+      return <PentaclesIcon className={stylesDeck.arcanaIcon} title="Pentacles" />;
     case 'swords':
-      return <SwordsIcon className={styles.arcanaIcon} title="Swords" />;
+      return <SwordsIcon className={stylesDeck.arcanaIcon} title="Swords" />;
     case 'wands':
-      return <WandsIcon className={styles.arcanaIcon} title="Wands" />;
+      return <WandsIcon className={stylesDeck.arcanaIcon} title="Wands" />;
     default:
       return null;
   }

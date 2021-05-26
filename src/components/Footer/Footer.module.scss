@@ -1,0 +1,25 @@
+.footer {
+  position: absolute;
+  bottom: 2rem;
+  list-style: none;
+  right: 2rem;
+  > ul {
+    > li,
+    a,
+    span {
+      display: inline-block;
+      display: flex;
+      align-items: center;
+    }
+    > li {
+      justify-content: flex-end;
+    }
+  }
+}
+
+.footerIcon {
+  fill: #f3f5f9;
+  margin-right: 0.5rem;
+  height: 1.5rem !important;
+  width: 1.5rem !important;
+}

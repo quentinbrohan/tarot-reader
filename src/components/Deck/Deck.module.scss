@@ -1,0 +1,42 @@
+.deckContainer {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+.deck {
+  position: absolute;
+  width: 300px;
+  width: 40%;
+  height: 200px;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deck > img {
+  touch-action: none;
+  background-color: white;
+  background-size: auto 95%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 45vh;
+  max-width: 300px;
+  height: 85vh;
+  max-height: 570px;
+  will-change: transform;
+  border-radius: 10px;
+  box-shadow: 0 12px 100px -12px rgba(0, 0, 0, 0.4), 0 10px 10px -10px rgba(0, 0, 0, 0.3);
+  cursor: grab;
+  user-select: none;
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.arcanaIcon {
+  width: 4rem;
+  height: 4rem;
+}

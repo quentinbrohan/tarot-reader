@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.header {
+  height: 8rem;
+}
+
+.main {
+  display: flex;
+  height: 100%;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.detailsContainer {
+  width: 60%;
+}
+
+a {
+  color: #f3f5f9;
+}
+a:checked {
+  color: blue;
+}
+a:visited {
+  color: #e42a2d;
+}

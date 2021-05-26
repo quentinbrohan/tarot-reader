@@ -1,0 +1,34 @@
+.cardDetails {
+  width: 80%;
+  .arcanaContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 1rem;
+
+    .arcanaTitle {
+      text-transform: capitalize;
+      font-size: 1.5rem;
+      color: #f3f5f9;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+
+  .title {
+    font-size: 2rem;
+    color: #e42a2d;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+  }
+
+  .reversed {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .description {
+    font-size: 1.2rem;
+  }
+}

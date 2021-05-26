@@ -1,3 +1,16 @@
+# Tarot Reader :crystal_ball:
+
+Pick a card and face your fate.
+
+- React
+- TypeScript
+- React Spring
+
+![](tarot-reader-screenshot.png)
+
+Illustrations from [Winslow Dumaine](http://www.winslowdumaine.com/tarot).\
+Tarot cards meaning from Travis McHenry's book: [An Occult Guide to the Tarot](https://www.barnesandnoble.com/w/an-occult-guide-to-the-tarot-travis-mchenry/1123404538).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
